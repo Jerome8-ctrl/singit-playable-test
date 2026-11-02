@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="he">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<style>*{box-sizing:border-box;margin:0;padding:0}</style>
+<title>Singit Playable Test</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Rubik:wght@400;500;700&display=swap">
+<style>
+/* Layout: phone mock of the live ad beside a short brief for testers; stacks on phones */
+:root{
+  --bg:#F3F5FB; --surface:#FFFFFF; --ink:#1B1E3D; --muted:#646B85; --line:#E2E6F0;
+  --primary:#5B8CF4; --primary-d:#3F6FD6; --purple:#B651E0; --tag:#FBEAFB;
+  --frame:#14172E;
+  --display:Nunito,"Segoe UI Rounded",system-ui,sans-serif;
+  --body:Rubik,"Segoe UI",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0F1224; --surface:#181C35; --ink:#ECEFFA; --muted:#A3A9C4; --line:#2A2F52; --tag:#3A2350; --frame:#000; color-scheme:dark } }
+:root[data-theme="dark"]{ --bg:#0F1224; --surface:#181C35; --ink:#ECEFFA; --muted:#A3A9C4; --line:#2A2F52; --tag:#3A2350; --frame:#000; color-scheme:dark }
+
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1040px;margin:0 auto;padding-block:40px;display:grid;grid-template-columns:auto 1fr;gap:56px;align-items:center}
+.phone{width:375px;height:760px;max-width:100%;border-radius:46px;background:var(--frame);padding:12px;box-shadow:0 30px 60px -20px rgba(27,30,61,.35)}
+.phone iframe{display:block;width:100%;height:100%;border:0;border-radius:36px;background:#fff}
+.brief{min-width:0;display:flex;flex-direction:column;gap:22px}
+.tag{align-self:flex-start;background:var(--tag);color:var(--purple);font-family:var(--display);font-weight:800;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:6px 10px;border-radius:8px}
+h1{font-family:var(--display);font-weight:900;font-size:clamp(30px,4vw,42px);line-height:1.1;text-wrap:balance}
+.lede{color:var(--muted);max-width:52ch}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.fact{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.fact b{display:block;font-family:var(--display);font-weight:900;font-size:22px;font-variant-numeric:tabular-nums}
+.fact span{font-size:13px;color:var(--muted)}
+.steps{display:flex;flex-direction:column;gap:10px;padding:0;list-style:none;counter-reset:s}
+.steps li{display:flex;gap:12px;align-items:baseline;counter-increment:s}
+.steps li:before{content:counter(s);flex:none;width:24px;height:24px;border-radius:50%;background:var(--primary);color:#fff;font:800 13px/24px var(--display);text-align:center}
+.ask{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;font-size:15px}
+.ask strong{font-family:var(--display)}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.btn{font:800 16px var(--display);border:none;border-radius:14px;padding:13px 20px;cursor:pointer;background:var(--primary);color:#fff;box-shadow:0 4px 0 var(--primary-d)}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--primary-d)}
+.btn.ghost{background:var(--surface);color:var(--ink);border:2px solid var(--line);box-shadow:0 4px 0 var(--line)}
+.btn:focus-visible{outline:3px solid var(--purple);outline-offset:2px}
+@media (max-width:820px){
+  .wrap{grid-template-columns:1fr;gap:28px;padding-block:20px}
+  .phone{justify-self:center;width:100%;max-width:375px;height:min(760px,calc(100dvh - 40px))}
+  .brief{order:-1}
+  .facts{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (prefers-reduced-motion:reduce){ *{transition:none!important;animation:none!important} }
+</style>
+</head>
+<body>
+
+<main class="wrap" dir="rtl">
+  <div class="phone" dir="ltr"><iframe id="ad" src="ad.html" title="Singit playable ad" allow="autoplay"></iframe></div>
+  <section class="brief">
+    <span class="tag">טיוטה לבדיקה פנימית</span>
+    <h1>מודעת Playable: השלמת מילים בשיר</h1>
+    <p class="lede">מודעה אינטראקטיבית לרשתות פרסום. המשתמש שומע קטע מ-Die With A Smile ומשלים 4 מילים חסרות. בסוף יש כפתור הורדה של Singit.</p>
+    <div class="facts">
+      <div class="fact"><b>15 שנ׳</b><span>משך המשחק</span></div>
+      <div class="fact"><b>4</b><span>מילים להשלמה</span></div>
+      <div class="fact"><b>85KB</b><span>קובץ אחד</span></div>
+    </div>
+    <ol class="steps">
+      <li>לוחצים PLAY בטלפון שמשמאל, עם סאונד פתוח.</li>
+      <li>בוחרים את המילה החסרה. תשובה שגויה מורידה לב.</li>
+      <li>בסוף מופיעים כוכבים וכפתור Download.</li>
+    </ol>
+    <div class="ask"><strong>מה לבדוק:</strong> האם ברור מה עושים בשנייה הראשונה, האם 15 שניות מספיקות, והאם המסיחים קשים מדי או קלים מדי.</div>
+    <div class="row">
+      <button class="btn" id="replay" type="button">לשחק שוב</button>
+      <a class="btn ghost" href="ad.html" target="_blank" rel="noopener">לפתוח במסך מלא</a>
+    </div>
+  </section>
+</main>
+<script>
+document.getElementById("replay").addEventListener("click", function(){
+  var f = document.getElementById("ad"); f.src = "ad.html?r=" + Date.now();
+});
+</script>
+</body>
+</html>
